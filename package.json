@@ -1,6 +1,6 @@
 {
   "name": "cumulative-distribution-function",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "create cumulative distribution function from copy of array",
   "main": "index.js",
   "repository": "drpaulbrewer/cumulative-distribution-function",
@@ -13,7 +13,7 @@
   },
   "keywords": [
     "statistics",
-      "distribution"
+    "distribution"
   ],
   "author": "drpaulbrewer@gmail.com",
   "license": "MIT",
