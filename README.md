@@ -51,6 +51,7 @@ var mycdf = cdf([]); // empty or missing data
 mycdf(5) // returns undefined 
 mycdf.xs() // returns empty array []
 mycdf.ps() // returns empty array []
+```
 
 ## Tests
 
