@@ -1,3 +1,10 @@
+/*
+ *  Copyright 2016 Paul Brewer, Economic and Financial Technology Consulting LLC <drpaulbrewer@eaftc.com>
+ *  This file is open source software.  License: The MIT License
+ *
+ */
+
+
 module.exports = function(data){
     if (!(data.length)){
 	return function(x){};
