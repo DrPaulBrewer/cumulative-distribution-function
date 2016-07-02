@@ -1,0 +1,26 @@
+{
+  "name": "cumulative-distribution-function",
+  "version": "0.1.0",
+  "description": "create cumulative distribution function from copy of array",
+  "main": "index.js",
+  "repository": "drpaulbrewer/cumulative-distribution-function",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --slow 50 --timeout 2000",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+  },
+  "keywords": [
+    "statistics",
+      "distribution"
+  ],
+  "author": "drpaulbrewer@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2",
+    "istanbul": "^0",
+    "mocha": "^2",
+    "should": "^8"
+  }
+}
