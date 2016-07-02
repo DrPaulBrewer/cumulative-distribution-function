@@ -24,6 +24,8 @@ a step function that counts the proportion of data less than or equal to the inp
 
 The function returned by cdf(data) takes a number x and returns the proportion of values less than or equal to x.  
 
+## Example
+
 ```
 var mydata = [13,2,5,3,23,7,11,13,19,23];
 var mycdf  = cdf(mydata); // cdf(mydata) returns a **function**, so mycdf is a **function**
@@ -37,6 +39,18 @@ mycdf(25) // 1.0 because all mydata are less than or equal to 25
 mycdf.xs() // returns [2,    3,  5,  7, 11, 13, 19, 23] from sorted, unique mydata
 mycdf.ps() // returns [0.1,0.2,0.3,0.4,0.5,0.7,0.8,1.0] from corresponding cumulative proportions
 ```
+
+##Missing or Empty Data
+
+Calling cdf with a missing or empty data array returns a function that returns undefined.
+
+The `.xs()` and `.ps()` auxiliary functions will return empty arrays.  
+
+```
+var mycdf = cdf([]); // empty or missing data
+mycdf(5) // returns undefined 
+mycdf.xs() // returns empty array []
+mycdf.ps() // returns empty array []
 
 ## Tests
 

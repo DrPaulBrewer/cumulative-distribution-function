@@ -35,4 +35,64 @@ describe('f=cdf([13,2,5,3,23,7,11,13,19,23]) ', function(){
 
 });
 
+describe('f=cdf([3]) (data is a single point x=3)', function(){
+    var f = cdf([3]);
 
+    var xs = [3];
+    var ps = [1];
+
+    var test_x = [2,2.9,3,3.1];
+    var test_p = [0,0,1,1];
+    
+    test_x.forEach(function(x,i){
+	var test_label = 'f('+x+') ~ '+test_p[i];
+	it(test_label, function(){
+	    f(x).should.be.approximately(test_p[i],1e-6);
+	});
+    });
+
+    it('f.xs() should equal '+JSON.stringify(xs), function(){
+	f.xs().should.deepEqual(xs);
+    });
+
+    it('f.ps() should equal '+JSON.stringify(ps), function(){
+	f.ps().forEach(function(p,i){
+	    p.should.be.approximately(ps[i],1e-6);
+	});
+    });
+});
+
+describe('f=cdf() (missing data)', function(){
+    var f = cdf();
+    
+    it('f(7) returns undefined', function(){
+	assert.ok(typeof(f(7))==='undefined');
+    });
+
+    it('f.xs() should return []', function(){
+	f.xs().should.deepEqual([]);
+    });
+    
+    it('f.ps() should return []', function(){
+	f.ps().should.deepEqual([]);
+    });
+});
+
+describe('f=cdf([]) (empty data)', function(){
+    var f = cdf();
+    
+    it('f(7) returns undefined', function(){
+	assert.ok(typeof(f(7))==='undefined');
+    });
+
+    it('f.xs() should return []', function(){
+	f.xs().should.deepEqual([]);
+    });
+    
+    it('f.ps() should return []', function(){
+	f.ps().should.deepEqual([]);
+    });
+});
+
+
+    
