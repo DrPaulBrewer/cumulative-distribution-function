@@ -1,5 +1,7 @@
 cumulative-distribution-function
 ----------
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/DrPaulBrewer/cumulative-distribution-function.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/DrPaulBrewer/cumulative-distribution-function.svg?branch=master)](https://travis-ci.org/DrPaulBrewer/cumulative-distribution-function)
 [![Coverage Status](https://coveralls.io/repos/github/DrPaulBrewer/cumulative-distribution-function/badge.svg?branch=master)](https://coveralls.io/github/DrPaulBrewer/cumulative-distribution-function?branch=master)
 

@@ -18,10 +18,10 @@
   "author": "drpaulbrewer@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2",
+    "coveralls": "^3.0.0",
     "istanbul": "^0",
-    "mocha": "^2",
-    "should": "^8"
+    "mocha": "^4.0.1",
+    "should": "^13.1.2"
   },
   "reveal": true
 }
