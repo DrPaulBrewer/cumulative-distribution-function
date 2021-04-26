@@ -21,10 +21,23 @@ None.  Suitable for usage on nodejs or on the browser, via browserify.
 
 ## Usage
 
-Pass a numeric data array as input, `cdf(data)` returns a **function**, the [empirical cumulative distribution function](https://en.wikipedia.org/wiki/Empirical_distribution_function),
+Pass a *numeric* data array as input.  
+
+`cdf(data)` returns a **function**, the [empirical cumulative distribution function](https://en.wikipedia.org/wiki/Empirical_distribution_function),
 a step function that counts the proportion of data less than or equal to the input x.
 
 The function returned by cdf(data) takes a number x and returns the proportion of values less than or equal to x.  
+
+### Important: Passing string data instead of numbers can cause the cdf function to hang
+
+Pass clean data. Clean up your data with something like:
+
+```
+clean_data = raw_data
+              .map((v)=>(+v))
+              .filter((v)=>(isFinite(v)));
+```
+
 
 ## Example
 
@@ -61,7 +74,7 @@ Use mocha framework.
 
 ### Copyright
 
-Copyright 2016 Paul Brewer, Economic and Financial Technology Consulting LLC
+Copyright 2016- Paul Brewer, Economic and Financial Technology Consulting LLC
 
 ### License
 
