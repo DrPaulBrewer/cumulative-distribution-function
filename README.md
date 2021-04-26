@@ -33,11 +33,13 @@ The function returned by cdf(data) takes a number x and returns the proportion o
 Pass clean data. Clean up your data with something like:
 
 ```
-clean_data = raw_data
-              .map((v)=>(+v))
-              .filter((v)=>(isFinite(v)));
+const clean_data = raw_data
+                    .map((v)=>(+v))
+                    .filter((v)=>(isFinite(v)));
 ```
 
+where the map function will convert stringified numbers (e.g. '123') to numbers;
+and the filter function will remove NaN's, +Infinity, and -Infinity.
 
 ## Example
 
