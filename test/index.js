@@ -33,7 +33,7 @@ describe('tests for handling of invalid data or usage:', function(){
         [{a:3},2,3],
         [null,2,3],
         [1,2,[3,4],5]
-     ].forEach((data)=>(expectTypeError[data]));
+     ].forEach((data)=>(expectTypeError([data])));
     
     [
         undefined,
@@ -42,7 +42,7 @@ describe('tests for handling of invalid data or usage:', function(){
         "",
         "2.5",
         [1,2]
-    ].forEach((x)=>(expectTypeError([1,2,3],x));
+    ].forEach((x)=>(expectTypeError([1,2,3],x)));
 });
               
 
