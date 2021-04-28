@@ -1,5 +1,5 @@
-/* Copyright 2016 Paul Brewer Economic & Financial Technology Consulting LLC */
-/* tests for PartialIndex */
+/* Copyright 2016- Paul Brewer Economic & Financial Technology Consulting LLC */
+/* tests for cumulative-distribution-function */
 /* Open Source License: The MIT Public License */
 
 var assert = require('assert');
