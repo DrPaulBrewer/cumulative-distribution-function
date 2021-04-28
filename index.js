@@ -28,6 +28,10 @@ module.exports = function(data){
 	    }
 	}
 	f = function(x){
+        if (typeof(x)!=='number') 
+            throw new TypeError('cdf function input must be a number, got:'+typeof(x));
+		if (Number.isNaN(x))
+            return x;
 	    var left=0, right=xs.length-1, mid, midval;
 	    if (x<xs[0]) return 0;
 	    if (x>=xs[xs.length-1]) return 1;
