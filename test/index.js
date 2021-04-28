@@ -11,7 +11,7 @@ describe('tests for handling of invalid data or usage:', function(){
         if (x===undefined){
             it('cdf('+JSON.stringify(data)+') should throw TypeError', function(){
                 function bad(){ var f = cdf(data); }
-                bad.should.throw(/cdf input must be an array of finite numbers, got:/);
+                bad.should.throw(/cdf data must be an array of finite numbers, got:/);
             });
        } else {
             it('f('+x+') should throw TypeError', function(){
@@ -73,7 +73,8 @@ describe('f=cdf([13,2,5,3,23,7,11,13,19,23]) ', function(){
 
     it('f.ps() should equal '+JSON.stringify(ps), function(){
     	f.ps().forEach(function(p,i){
-	    p.should.be.approximately(ps[i],1e-6);
+	        p.should.be.approximately(ps[i],1e-6);
+        });
 	});
 });
 
