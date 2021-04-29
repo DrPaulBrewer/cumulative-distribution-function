@@ -14,7 +14,7 @@ describe('tests for handling of invalid data or usage:', function(){
                 bad.should.throw(/cdf data must be an array of finite numbers, got:/);
             });
        } else {
-            it('f('+x+') should throw TypeError', function(){
+            it('f('+JSON.stringify(x)+') should throw TypeError', function(){
                 var f = cdf(data);  
                 function bad(){ var p = f(x); }
                 bad.should.throw(/cdf function input must be a number, got:/);
