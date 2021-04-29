@@ -10,6 +10,14 @@ module.exports = function(data){
     "use strict";
     var f, sorted, xs, ps, i, j, l, xx;
     if (Array.isArray(data) && (data.length>0)){
+	for(i=0,l=data.length;i<l;++i){
+	    if (typeof(data[i])!=='number'){
+                throw new TypeError("cdf data must be an array of finite numbers, got:"+typeof(data[i])+" at "+i);
+	    }
+	    if (!isFinite(data[i])){ 
+		throw new TypeError("cdf data must be an array of finite numbers, got:"+data[i]+" at "+i);
+	    }
+	}
 	sorted = data.slice().sort(function(a,b){ return +a-b; });
 	xs = [];
 	ps = [];
