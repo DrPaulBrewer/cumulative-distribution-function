@@ -39,7 +39,6 @@ describe('tests for handling of invalid data or usage:', function(){
      ].forEach((data)=>(expectTypeError([data])));
     
     [
-        undefined,
         null,
         {},
         "",
