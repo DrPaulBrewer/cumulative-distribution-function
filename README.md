@@ -42,7 +42,7 @@ where the map function will convert stringified numbers (e.g. '123') to numbers;
 and the filter function will remove NaN's, +Infinity, and -Infinity.  
 
 The simple map/filter conversion above won't work for everybody.  
-For instances, `+v` converts `''` or `null` to `0` which is kept, and `undefined` to `NaN` which is filtered out.
+For instance, `+v` converts `''` or `null` to `0` which is kept, and `undefined` to `NaN` which is filtered out.
 
 ## Example
 
