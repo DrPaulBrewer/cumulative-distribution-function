@@ -28,9 +28,9 @@ a step function that counts the proportion of data less than or equal to the inp
 
 The function returned by cdf(data) takes a number x and returns the proportion of values less than or equal to x.  
 
-### Important: Passing string data instead of numbers can cause the cdf function to hang
+### New for v2.0: Passing string data (e.g.`"42"`) or other invalid, missing or empty data instead of numbers will throw a TypeError.
 
-Pass clean data. Clean up your data with something like:
+Pass clean data. Convert and clean up your data with something like:
 
 ```
 const clean_data = raw_data
@@ -39,7 +39,10 @@ const clean_data = raw_data
 ```
 
 where the map function will convert stringified numbers (e.g. '123') to numbers;
-and the filter function will remove NaN's, +Infinity, and -Infinity.
+and the filter function will remove NaN's, +Infinity, and -Infinity.  
+
+The simple map/filter conversion above won't work for everybody.  
+For instance, `+v` converts `''` or `null` to `0` which is kept, and `undefined` to `NaN` which is filtered out.
 
 ## Example
 
@@ -57,18 +60,9 @@ mycdf.xs() // returns [2,    3,  5,  7, 11, 13, 19, 23] from sorted, unique myda
 mycdf.ps() // returns [0.1,0.2,0.3,0.4,0.5,0.7,0.8,1.0] from corresponding cumulative proportions
 ```
 
-##Missing or Empty Data
+## Missing or Empty Data
 
-Calling cdf with a missing or empty data array returns a function that returns undefined.
-
-The `.xs()` and `.ps()` auxiliary functions will return empty arrays.  
-
-```
-var mycdf = cdf([]); // empty or missing data
-mycdf(5) // returns undefined 
-mycdf.xs() // returns empty array []
-mycdf.ps() // returns empty array []
-```
+Will throw TypeError
 
 ## Tests
 
