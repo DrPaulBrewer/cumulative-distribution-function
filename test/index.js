@@ -113,3 +113,18 @@ describe('f=cdf([3]) (data is a single point x=3)', function() {
     });
   });
 });
+
+describe('a stringification "attack" on f.xs()', function(){
+  var data = [1,2,3,4,5,6,7,8,9,10,100,101];
+  var f = cdf(data);
+  it('calling f(3) after f.xs() is stringified should throw an Error instead of loop infinitely', function(){
+    var xs = f.xs();
+    for(var i=0,l=xs.length; i<l; ++i){
+      xs[i] = String(xs[i]);
+    }
+    function bad(){
+      return f(3);
+    }
+    bad.should.throw(/iterations/);
+  })
+});
