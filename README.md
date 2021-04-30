@@ -21,14 +21,14 @@ None.  Suitable for usage on nodejs or on the browser, via browserify.
 
 ## Usage
 
-Pass a *numeric* data array as input.  
+Pass a *number* data array as input.  Do not pass strings that look like numbers.  Invalid data may throw a `TypeError`
 
-`cdf(data)` returns a **function**, the [empirical cumulative distribution function](https://en.wikipedia.org/wiki/Empirical_distribution_function),
-a step function that counts the proportion of data less than or equal to the input x.
+`f = cdf(data)` returns a **function** `f`, the [empirical cumulative distribution function](https://en.wikipedia.org/wiki/Empirical_distribution_function),
+a step function `f(x)` that counts the proportion of data less than or equal to the number input x.
 
 The function returned by cdf(data) takes a number x and returns the proportion of values less than or equal to x.  
 
-### New for v2.0: Passing string data (e.g.`"42"`) or other invalid, missing or empty data instead of numbers will throw a TypeError.
+## New for v2.0: Passing string data (e.g.`"42"`) or other invalid, missing or empty data instead of numbers will throw a TypeError.
 
 Pass clean data. Convert and clean up your data with something like:
 
@@ -43,6 +43,16 @@ and the filter function will remove NaN's, +Infinity, and -Infinity.
 
 The simple map/filter conversion above won't work for everybody.  
 For instance, `+v` converts `''` or `null` to `0` which is kept, and `undefined` to `NaN` which is filtered out.
+
+## New for v2.1: Bisection loop limit
+
+`Error("cdf function exceeded 40 bisection iterations, aborting bisection loop")`
+
+The returned function `f` from `f = cdf(data)` will throw the above error instead of loop endlessly on invalid data. This helps in case an "attacker"
+(or simply poor code) changes the `xs` data array accessible at `f.xs()` to be string data or other invalid data.   The limit of 40
+bisections implies a data array size limit of roughly 2^40 or 10^12 entries.  This limit is beyond 2021 browser and nodejs capabilities but is short
+enough to "fail quickly" in the case of an unusual failure in the bisection exit conditions.  
+
 
 ## Example
 
@@ -75,4 +85,3 @@ Copyright 2016- Paul Brewer, Economic and Financial Technology Consulting LLC
 ### License
 
 MIT
-
