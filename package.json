@@ -1,6 +1,6 @@
 {
   "name": "cumulative-distribution-function",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "create empirical cumulative distribution function from array of values",
   "main": "index.js",
   "repository": "drpaulbrewer/cumulative-distribution-function",
